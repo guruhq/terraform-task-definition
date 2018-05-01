@@ -18,7 +18,7 @@ data "template_file" "task_def_config" {
 }
 
 module "task_definition" {
-  source           = "git::ssh://git@github.com/guruhq/terraform-task-definition?ref=0.1.0"
+  source           = "git::ssh://git@github.com/guruhq/terraform-task-definition?ref=1.0.0"
   service_iam_role = "arn:aws:iam::495243515911:role/dev-service-role"
   container_config = "${data.template_file.task_def_config.rendered}"
   task_def_name    = "example"
@@ -51,6 +51,9 @@ variable "task_def_name" {
 }
 variable "region" {
   default = "us-west-2"
+}
+variable "network_mode" {
+  default = "bridge"
 }
 ```
 
@@ -87,5 +90,10 @@ variable "region" {
 - `env` - The environment (Default: `dev`)
 - `memory_limit` - Hard memory limit to kill the container at (Default: `1024`)
 - `region` - Where it all happens (Default: `us-west-2`)
+- `compatibilities` - EC2 and FARGATE are the options here - choosing which ECS platform to work with (Default: `EC2`)
+- `network_mode` - the Docker networking mode to run the containers on (Default: `bridge`)
+- `cpu` - the amount of CPU to give a container group (Default: `1024`)
+- `memory` - the amount of memory to give a container group (Default: `2048`)
+- `execution_role_arn` - the role to allow the containers to communicate with AWS
 
 ## Outputs
