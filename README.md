@@ -49,9 +49,6 @@ variable "env" {
 variable "task_def_name" {
   default = "example"
 }
-variable "region" {
-  default = "us-west-2"
-}
 variable "network_mode" {
   default = "bridge"
 }
@@ -89,7 +86,6 @@ variable "network_mode" {
 - `service_iam_role` - The IAM Role ARN to be used with the container (Default `unknown`)
 - `env` - The environment (Default: `dev`)
 - `memory_limit` - Hard memory limit to kill the container at (Default: `1024`)
-- `region` - Where it all happens (Default: `us-west-2`)
 - `compatibilities` - EC2 and FARGATE are the options here - choosing which ECS platform to work with (Default: `EC2`)
 - `network_mode` - the Docker networking mode to run the containers on (Default: `bridge`)
 - `cpu` - the amount of CPU to give a container group (Default: `1024`)

@@ -1,6 +1,3 @@
-variable "region" {
-  default = "us-west-2"
-}
 variable "memory_limit" {
   default = "1024"
 }
@@ -18,9 +15,6 @@ variable "cpu" {
 }
 variable "memory" {
   default = "2048"
-}
-variable "profile" {
-  default = "default"
 }
 variable "service_iam_role" {}
 variable "container_config" {}
