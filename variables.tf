@@ -16,6 +16,9 @@ variable "cpu" {
 variable "memory" {
   default = "2048"
 }
+variable "volume" {
+  default = null
+}
 variable "service_iam_role" {}
 variable "container_config" {}
 variable "task_def_name" {}
